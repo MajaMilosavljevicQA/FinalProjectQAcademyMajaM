@@ -1,0 +1,146 @@
+package Pages;
+
+import Base.BaseTest;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+public class HomePage extends BaseTest {
+
+    public HomePage() {
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[3]/div/div[2]/button")  //MuiTouchRipple-root
+    //Steps only after Registration
+    WebElement nextButtonPopUp;     //todo inspect txt on buttons
+
+    public void assertAndClickNextButton() {
+        Assert.assertTrue(nextButtonPopUp.isDisplayed());
+        Assert.assertTrue(nextButtonPopUp.isEnabled());
+        Assert.assertEquals("Next", nextButtonPopUp.getText());
+        nextButtonPopUp.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[2]/div/form/div[4]/div/button/span[1]")
+    WebElement saveButton;  //same class name for multiple buttons
+
+    public void assertAndClickSaveButton() {
+        Assert.assertTrue(saveButton.isDisplayed());
+        Assert.assertTrue(saveButton.isEnabled());
+        Assert.assertEquals("Save", saveButton.getText());
+        saveButton.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[3]/div/div[2]/button")
+    ///html/body/div[2]/div[3]/div/div[3]/div/div[2]/button/span[2] --> span class Done
+    WebElement doneButton; //thirdPopup-Finished
+
+    public void assertAndClickDoneButton() {
+        Assert.assertTrue(doneButton.isDisplayed());
+        Assert.assertTrue(doneButton.isEnabled());
+        Assert.assertEquals("Done", doneButton.getText());
+        doneButton.click();
+    }
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[1]/h2")
+    WebElement getStartedWithRWAH2FirstPopup;  //Get Started with Real World App
+
+    public void assertHeaderGetStartedRWA() {
+        Assert.assertTrue(getStartedWithRWAH2FirstPopup.isDisplayed());
+        Assert.assertEquals("Get Started with Real World App", getStartedWithRWAH2FirstPopup.getText());
+    }
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[2]/div/p")
+    WebElement pasusTxtGetStartedRWAFirstPopup;  //Real World App requires a Bank Account to perform transactions. +\n+ \n +
+    // Click Next to begin setup of your Bank Account.
+
+    public void assertPasusGetStartedRWA() {
+        Assert.assertTrue(pasusTxtGetStartedRWAFirstPopup.isDisplayed());
+        Assert.assertEquals("Real World App requires a Bank Account to perform transactions.+\n + \n +Click Next to begin setup of your Bank Account.", pasusTxtGetStartedRWAFirstPopup.getText());
+    }
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[1]/h2") //Create Bank Account
+    WebElement createBankAccountSecondPopUpHeading;
+
+    public void assertHeaderCreateBankAccount() {
+        Assert.assertTrue(createBankAccountSecondPopUpHeading.isDisplayed());
+        Assert.assertEquals("Create Bank Account", createBankAccountSecondPopUpHeading.getText());
+    }
+
+    @FindBy(id = "bankaccount-bankName-input")
+    WebElement bankNameInputField;
+
+    public void assertBankAccountBankNameInputField() {
+        Assert.assertTrue(bankNameInputField.isDisplayed());
+        Assert.assertTrue(bankNameInputField.isEnabled()); //Check if it is necessary
+    }
+
+    public void bankNameInputFieldSendKeys(String bankName) {
+        bankNameInputField.clear();
+        bankNameInputField.sendKeys(bankName);
+    }
+
+    @FindBy(id = "bankaccount-bankName-input-helper-text")
+    WebElement bankNameHelperTxt;  // Enter a bank name
+
+    //Must contain at least 5 characters
+    public void assertBankAccountEmptyBankNameHelperTxt() {
+        Assert.assertTrue(bankNameHelperTxt.isDisplayed());
+        Assert.assertEquals("Enter a bank name", bankNameHelperTxt.getText());
+    }
+
+    public void assertBankAccountBankNameHelperTxt() {
+        Assert.assertTrue(bankNameHelperTxt.isDisplayed());
+        Assert.assertEquals("Must contain at least 5 characters", bankNameHelperTxt.getText());
+    }
+
+
+    @FindBy(id = "bankaccount-routingNumber-input")
+    WebElement routingNumberInputField;  //=9 characters
+
+    public void assertBankAccountRoutingNumberInputField() {
+        Assert.assertTrue(routingNumberInputField.isDisplayed());
+        Assert.assertTrue(routingNumberInputField.isEnabled()); //Check if it is necessary
+    }
+
+    public void routingNumberInputFieldSendKeys(String routingNo) {
+        routingNumberInputField.clear();
+        routingNumberInputField.sendKeys(routingNo);
+    }
+
+
+    @FindBy(id = "bankaccount-routingNumber-input-helper-text")
+    WebElement routingNumberHelperTxt;  //Enter a valid bank routing number
+    //Must contain a valid routing number
+
+    public void assertErrorMsgEmptyRoutingNumberInputField() {
+        Assert.assertTrue(routingNumberInputField.isDisplayed());
+        Assert.assertEquals("Enter a valid bank routing number", routingNumberHelperTxt.getText());
+    }
+
+    public void assertErrorMsgRoutingNumber() {
+        Assert.assertTrue(routingNumberInputField.isDisplayed());
+        Assert.assertEquals("Must contain a valid routing number", routingNumberHelperTxt.getText());
+        //Strictly more or less than 9 characters.
+    }
+
+    @FindBy(id = "bankaccount-accountNumber-input")
+    WebElement accountNumberInputField;
+
+    @FindBy(id = "bankaccount-accountNumber-input-helper-text")
+    WebElement accountNumberHelperTxt;  //Enter a valid bank account number
+    //Must contain at least 9 digits
+    //Must contain no more than 12 digits
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[1]/h2")
+    WebElement finishedHeadingThirdPopup;
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[2]/div/p")  //You're all set! + \n + \n + We're excited to have you aboard the Real World App!
+    WebElement passusTxtThirdPopup;
+
+
+}
