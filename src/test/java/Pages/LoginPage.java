@@ -78,6 +78,12 @@ public class LoginPage extends BaseTest {
         Assert.assertEquals("Remember me", rememberMeTxt.getText());
     }
 
+    public void assertRememberMeCheckBox() {
+        Assert.assertTrue(rememberMeCheckBox.isDisplayed());
+        Assert.assertTrue(rememberMeCheckBox.isEnabled());
+        Assert.assertFalse(rememberMeCheckBox.isSelected());
+    }
+
     public void clickRememberMeCheckBox() {
         rememberMeCheckBox.click();
     }

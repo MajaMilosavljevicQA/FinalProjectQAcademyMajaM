@@ -131,16 +131,51 @@ public class HomePage extends BaseTest {
     @FindBy(id = "bankaccount-accountNumber-input")
     WebElement accountNumberInputField;
 
+    public void assertAccountNoInputField() {
+        Assert.assertTrue(accountNumberInputField.isDisplayed());
+        Assert.assertTrue(accountNumberInputField.isEnabled());
+    }
+
+    public void accountNumberInputtFieldSendKeys(int accountNumber) {
+        accountNumberInputField.clear();
+        accountNumberInputField.sendKeys(Integer.toString(accountNumber));
+    }
+
     @FindBy(id = "bankaccount-accountNumber-input-helper-text")
     WebElement accountNumberHelperTxt;  //Enter a valid bank account number
     //Must contain at least 9 digits
     //Must contain no more than 12 digits
 
+    public void assertEmptyAccountNoHelperTxt() {
+        Assert.assertTrue(accountNumberHelperTxt.isDisplayed());
+        Assert.assertEquals("Enter a valid bank account number", accountNumberHelperTxt.getText());
+    }
+
+    public void assertAccountNoHelperTxtMinimumValue() {
+        Assert.assertTrue(accountNumberHelperTxt.isDisplayed());
+        Assert.assertEquals("Must contain at least 9 digits", accountNumberHelperTxt.getText());
+    }
+
+    public void assertAccountNoHelperTxtMaximumValue() {
+        Assert.assertTrue(accountNumberHelperTxt.isDisplayed());
+        Assert.assertEquals("Must contain no more than 12 digits", accountNumberHelperTxt.getText());
+    }
+
     @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[1]/h2")
     WebElement finishedHeadingThirdPopup;
 
+    public void assertFinishedHeading3rdPopup() {
+        Assert.assertTrue(finishedHeadingThirdPopup.isDisplayed());
+        Assert.assertEquals("Finished", finishedHeadingThirdPopup.getText());
+    }
+
     @FindBy(xpath = "/html/body/div[2]/div[3]/div/div[2]/div/p")  //You're all set! + \n + \n + We're excited to have you aboard the Real World App!
     WebElement passusTxtThirdPopup;
+
+    public void assertPassusTxt3rdPopup() {
+        Assert.assertTrue(passusTxtThirdPopup.isDisplayed());
+        Assert.assertEquals("You're all set! + \n + \n + We're excited to have you aboard the Real World App!", passusTxtThirdPopup.getText());
+    }
 
 
 }
