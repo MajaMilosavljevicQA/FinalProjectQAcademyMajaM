@@ -19,6 +19,7 @@ public class LoginTests extends BaseTest {
         loginPage.assertSignInButton();
         loginPage.assertUsernameField();
         loginPage.assertPasswordInputField();
+        loginPage.assertRememberMeCheckBox();
         loginPage.rememberMe();
         headerFooterLogos.assertQacademyLogo();
     }
@@ -27,6 +28,7 @@ public class LoginTests extends BaseTest {
     public void validSignInRememberMeCheked() {
         loginPage.usernameField("MM");
         loginPage.passwordField("1234");
+        loginPage.assertRememberMeCheckBox();
         loginPage.clickRememberMeCheckBox();
         loginPage.clickSignInButton();
 

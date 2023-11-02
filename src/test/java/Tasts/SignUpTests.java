@@ -17,8 +17,8 @@ public class SignUpTests extends BaseTest {
         headerFooterLogos.assertQacademyLogo();
         signUpRegistrationPage.assertFirstNameField();
         signUpRegistrationPage.assertLastNameField();
-        loginPage.assertUsernameField();
-        loginPage.assertPasswordInputField();
+        loginPage.assertUsernameField();  //same element for login and registration pg.
+        loginPage.assertPasswordInputField(); //same element for login and registration pg.
         signUpRegistrationPage.assertConfirmPasswordInputField();
         signUpRegistrationPage.assertSignUpButton();
         signUpRegistrationPage.assertHaveAnAccountTxt();

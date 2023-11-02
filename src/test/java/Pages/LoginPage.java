@@ -86,6 +86,7 @@ public class LoginPage extends BaseTest {
 
     public void clickRememberMeCheckBox() {
         rememberMeCheckBox.click();
+        Assert.assertTrue(rememberMeCheckBox.isSelected());
     }
 
     public void assertSignInButton() {

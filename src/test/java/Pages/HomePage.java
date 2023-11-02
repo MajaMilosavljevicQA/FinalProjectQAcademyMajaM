@@ -177,31 +177,6 @@ public class HomePage extends BaseTest {
         Assert.assertEquals("You're all set! + \n + \n + We're excited to have you aboard the Real World App!", passusTxtThirdPopup.getText());
     }
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[1]/a[1]")
-    WebElement newTransactionButton;
-
-    public void assertNewTransactionBtn() {
-        Assert.assertTrue(newTransactionButton.isDisplayed());
-        Assert.assertTrue(newTransactionButton.isEnabled());
-        Assert.assertEquals(" New", newTransactionButton.getText());
-    }
-
-    public void clickNewTransactionBtn() {
-        newTransactionButton.click();
-    }
-
-    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[1]/a[2]")
-    WebElement bellNotificationIcon;
-
-    public void assertBellNotificationIcon() {
-        Assert.assertTrue(bellNotificationIcon.isDisplayed());
-        Assert.assertTrue(bellNotificationIcon.isEnabled());
-    }
-
-    public void clickBellNotificationIcon() {
-        bellNotificationIcon.click();
-    }
-
     @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[2]/div/span")
     WebElement tabIndicator;
 

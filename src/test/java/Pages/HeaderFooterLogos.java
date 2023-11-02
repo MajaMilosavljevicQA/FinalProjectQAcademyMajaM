@@ -14,28 +14,51 @@ public class HeaderFooterLogos extends BaseTest {
     @FindBy(className = "jss3")
     public WebElement realWorldAppLogo;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/h1")
-    public WebElement signInSignUpTxt;  // same for Sign in and for Sign up
-
-    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/p/a")
-    public WebElement qacademyLogo;
-
-
-        //////////*********////////
     public void assertRWALogo() {
         Assert.assertTrue(realWorldAppLogo.isDisplayed());
     }
 
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/h1")
+    public WebElement signInTxt;  // same for Sign in and for Sign up
+
     public void assertSignInTxt() {
-        Assert.assertTrue(signInSignUpTxt.isDisplayed());
-        Assert.assertEquals("Sign in", signInSignUpTxt.getText());
+        Assert.assertTrue(signInTxt.isDisplayed());
+        Assert.assertEquals("Sign in", signInTxt.getText());
     }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/p/a")
+    public WebElement qacademyLogo;
 
     public void assertQacademyLogo() {
         Assert.assertTrue(qacademyLogo.isDisplayed());
     }
     public void clickOnQacademyLogo() {
         qacademyLogo.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[1]/a[1]")
+    WebElement newTransactionButton;
+
+    public void assertNewTransactionBtn() {
+        Assert.assertTrue(newTransactionButton.isDisplayed());
+        Assert.assertTrue(newTransactionButton.isEnabled());
+        Assert.assertEquals(" New", newTransactionButton.getText());
+    }
+
+    public void clickNewTransactionBtn() {
+        newTransactionButton.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[1]/a[2]")
+    WebElement bellNotificationIcon;
+
+    public void assertBellNotificationIcon() {
+        Assert.assertTrue(bellNotificationIcon.isDisplayed());
+        Assert.assertTrue(bellNotificationIcon.isEnabled());
+    }
+
+    public void clickBellNotificationIcon() {
+        bellNotificationIcon.click();
     }
 
 }
