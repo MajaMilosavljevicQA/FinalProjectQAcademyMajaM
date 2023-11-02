@@ -177,5 +177,75 @@ public class HomePage extends BaseTest {
         Assert.assertEquals("You're all set! + \n + \n + We're excited to have you aboard the Real World App!", passusTxtThirdPopup.getText());
     }
 
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[1]/a[1]")
+    WebElement newTransactionButton;
+
+    public void assertNewTransactionBtn() {
+        Assert.assertTrue(newTransactionButton.isDisplayed());
+        Assert.assertTrue(newTransactionButton.isEnabled());
+        Assert.assertEquals(" New", newTransactionButton.getText());
+    }
+
+    public void clickNewTransactionBtn() {
+        newTransactionButton.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[1]/a[2]")
+    WebElement bellNotificationIcon;
+
+    public void assertBellNotificationIcon() {
+        Assert.assertTrue(bellNotificationIcon.isDisplayed());
+        Assert.assertTrue(bellNotificationIcon.isEnabled());
+    }
+
+    public void clickBellNotificationIcon() {
+        bellNotificationIcon.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[2]/div/span")
+    WebElement tabIndicator;
+
+    public void assertTabIndicator() {
+        Assert.assertTrue(tabIndicator.isDisplayed());  // todo ask the team how to assert tabIndicator with tabs (everyone, friends, mine)
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[2]/div/div/a[1]")
+    WebElement everyoneLinkTab;  //URL:  https://app.qacademy.rs/
+
+    public void assertEveryoneLinkTab() {
+        Assert.assertTrue(everyoneLinkTab.isDisplayed());
+        Assert.assertTrue(everyoneLinkTab.isEnabled());  //check if needed
+        Assert.assertEquals("Everyone", everyoneLinkTab.getText());
+    }
+
+    public void clickEveryoneLinkTab() {
+        everyoneLinkTab.click();
+    }
+
+    @FindBy (xpath = "//*[@id=\"root\"]/div/header/div[2]/div/div/a[2]")
+    WebElement friendsTab;  //URL:  https://app.qacademy.rs/contacts
+
+    public void assertFriendsTab() {
+        Assert.assertTrue(friendsTab.isDisplayed());
+        Assert.assertTrue(friendsTab.isEnabled()); //check if needed
+        Assert.assertEquals("Friends", friendsTab.getText());
+    }
+
+    public void clickFriendsTab() {
+        friendsTab.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[2]/div/div/a[3]")
+    WebElement mineTab;  //URL:  https://app.qacademy.rs/personal
+
+    public void assertMineTab() {
+        Assert.assertTrue(mineTab.isDisplayed());
+        Assert.assertTrue(mineTab.isEnabled()); //check if needed
+        Assert.assertEquals("Mine", mineTab.getText());
+    }
+
+    public void clickMineTab() {
+        mineTab.click();
+    }
 
 }

@@ -90,6 +90,8 @@ public class LoginPage extends BaseTest {
 
     public void assertSignInButton() {
         Assert.assertTrue(signInButton.isDisplayed());
+        Assert.assertTrue(signInButton.isEnabled());
+        Assert.assertEquals("Sign in", signInButton.getText());
     }
 
     public void clickSignInButton() {
@@ -98,6 +100,7 @@ public class LoginPage extends BaseTest {
 
     public void assertDontHaveAccountTxt() {
         Assert.assertTrue(dontHaveAccountSignUpLinkTxt.isDisplayed());
+        Assert.assertTrue(dontHaveAccountSignUpLinkTxt.isEnabled());
         Assert.assertEquals("Don't have an account? Sign Up", dontHaveAccountSignUpLinkTxt.getText());
     }
 
