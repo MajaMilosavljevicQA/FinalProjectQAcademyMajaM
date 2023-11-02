@@ -17,7 +17,7 @@ public class NotificationsPage extends BaseTest {
 
     public void assertNotificationsTitle() {
         Assert.assertTrue(notificationsTitle.isDisplayed());
-        Assert.assertEquals("Notifications");
+        Assert.assertEquals("Notifications", notificationsTitle.getText());
     }
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div/div/div/div[1]/h2")
