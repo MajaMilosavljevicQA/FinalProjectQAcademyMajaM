@@ -1,9 +1,6 @@
 package Base;
 
-import Pages.HeaderFooterLogos;
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.SignUpRegistrationPage;
+import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +22,8 @@ public class BaseTest {
     public SignUpRegistrationPage signUpRegistrationPage;
     public HomePage homePage;
 
+    public SidebarPage sidebarPage;
+
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
@@ -36,6 +35,7 @@ public class BaseTest {
         headerFooterLogos = new HeaderFooterLogos();
         signUpRegistrationPage = new SignUpRegistrationPage();
         homePage = new HomePage();
+        sidebarPage = new SidebarPage();
     }
 
     public void scroll(int x, int y) {
