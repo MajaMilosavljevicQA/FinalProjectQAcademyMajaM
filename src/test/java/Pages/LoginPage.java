@@ -12,6 +12,13 @@ public class LoginPage extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/h1")
+    public WebElement signInTxt;  // same for Sign in and for Sign up
+
+    public void assertSignInTxt() {
+        Assert.assertTrue(signInTxt.isDisplayed());
+        Assert.assertEquals("Sign in", signInTxt.getText());
+    }
 
     @FindBy(id = "username")
     public WebElement usernameInputField;

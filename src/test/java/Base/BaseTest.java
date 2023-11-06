@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import java.io.IOException;
 import java.time.Duration;
 
 public class BaseTest {
@@ -23,6 +22,8 @@ public class BaseTest {
     public HomePage homePage;
 
     public SidebarPage sidebarPage;
+    public TransactionSelectContactPage transactionSelectContactPage;
+    public TransactionPaymentPage transactionPaymentPage;
 
     @BeforeClass
     public void setUp() {
@@ -36,6 +37,8 @@ public class BaseTest {
         signUpRegistrationPage = new SignUpRegistrationPage();
         homePage = new HomePage();
         sidebarPage = new SidebarPage();
+        transactionSelectContactPage = new TransactionSelectContactPage();
+        transactionPaymentPage = new TransactionPaymentPage();
     }
 
     public void scroll(int x, int y) {

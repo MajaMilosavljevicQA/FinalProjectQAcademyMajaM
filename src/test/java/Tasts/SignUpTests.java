@@ -13,7 +13,7 @@ public class SignUpTests extends BaseTest {
     @Test(priority = 10)
     public void assertSignUpPgElements() {
         headerFooterLogos.assertRWALogo();
-        headerFooterLogos.assertSignInTxt();
+        signUpRegistrationPage.assertSignUpTxt();
         headerFooterLogos.assertQacademyLogo();
         signUpRegistrationPage.assertFirstNameField();
         signUpRegistrationPage.assertLastNameField();

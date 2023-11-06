@@ -18,14 +18,6 @@ public class HeaderFooterLogos extends BaseTest {
         Assert.assertTrue(realWorldAppLogo.isDisplayed());
     }
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/h1")
-    public WebElement signInTxt;  // same for Sign in and for Sign up
-
-    public void assertSignInTxt() {
-        Assert.assertTrue(signInTxt.isDisplayed());
-        Assert.assertEquals("Sign in", signInTxt.getText());
-    }
-
     @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/p/a")
     public WebElement qacademyLogo;
 

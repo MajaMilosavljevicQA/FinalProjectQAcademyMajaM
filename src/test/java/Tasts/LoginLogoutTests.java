@@ -15,7 +15,7 @@ public class LoginLogoutTests extends BaseTest {
     @Test(priority = 10)
     public void assertElementsOnLoginPg() {
         headerFooterLogos.assertRWALogo();
-        headerFooterLogos.assertSignInTxt();
+        loginPage.assertSignInTxt();
         loginPage.assertDontHaveAccountTxt();
         loginPage.assertSignInButton();
         loginPage.assertUsernameField();
@@ -46,8 +46,4 @@ public class LoginLogoutTests extends BaseTest {
         loginPage.assertErrorMsgSignIn();
     }
 
-    @Test
-    public void logout() {
-
-    }
-}
+ }

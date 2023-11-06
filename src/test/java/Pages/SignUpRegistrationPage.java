@@ -12,6 +12,9 @@ public class SignUpRegistrationPage extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/h1")
+    WebElement signUpTxt;
+
     @FindBy(id = "firstName")
     WebElement firstNameInputField;
 
@@ -49,6 +52,11 @@ public class SignUpRegistrationPage extends BaseTest {
     WebElement haveAnAccountTxt;
 
     ////////////////****************//////////
+
+    public void assertSignUpTxt() {
+        Assert.assertTrue(signUpTxt.isDisplayed());
+        Assert.assertEquals("Sign Up", signUpTxt.getText());
+    }
 
     public void assertFirstNameField() {
         Assert.assertTrue(firstNameInputField.isDisplayed());
