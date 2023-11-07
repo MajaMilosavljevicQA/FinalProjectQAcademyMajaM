@@ -48,14 +48,19 @@ public class SignUpRegistrationPage extends BaseTest {
     @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/form/button/span[1]")
     WebElement singUpButton;
 
-    @FindBy(linkText = "Have an account? Sign In")
-    WebElement haveAnAccountTxt;
+    @FindBy(xpath = "//a[@href='/signin']")  ////*[@id="root"]/div/main/div[1]/form/div[6]/div/a
+    WebElement haveAnAccountTxt;  //Have an account? Sign In
 
     ////////////////****************//////////
 
+    public void assertRegistrationPageURL() {
+        String urlSignup = "https://app.qacademy.rs/signup";
+        Assert.assertEquals(driver.getCurrentUrl(), urlSignup);
+    }
+
     public void assertSignUpTxt() {
         Assert.assertTrue(signUpTxt.isDisplayed());
-        Assert.assertEquals("Sign Up", signUpTxt.getText());
+        Assert.assertEquals(signUpTxt.getText(), "Sign Up");
     }
 
     public void assertFirstNameField() {
@@ -65,7 +70,7 @@ public class SignUpRegistrationPage extends BaseTest {
     public void assertFirstNameHelperTxt() {
         lastNameInputField.click();
         Assert.assertTrue(firstNameErrorMsg.isDisplayed());
-        Assert.assertEquals("First Name is required", firstNameErrorMsg.getText());
+        Assert.assertEquals(firstNameErrorMsg.getText(), "First Name is required");
     }
 
     public void firstNameField(String firstName) {
@@ -86,14 +91,31 @@ public class SignUpRegistrationPage extends BaseTest {
         lastNameInputField.click();
         firstNameInputField.click();
         Assert.assertTrue(lastNameErrorMsg.isDisplayed());
-        Assert.assertEquals("Last Name is required", lastNameErrorMsg.getText());
+        Assert.assertEquals(lastNameErrorMsg.getText(), "Last Name is required");
+    }
+
+    public void assertUsernameInputField() {
+        Assert.assertTrue(usernameInputField.isDisplayed());
+        Assert.assertTrue(usernameInputField.isEnabled());
+    }
+
+    public void assertUsernameHelperTxt() {
+        usernameInputField.click();
+        passwordInputField.click();
+        Assert.assertTrue(usernameErrorMsg.isDisplayed());
+        Assert.assertEquals(usernameErrorMsg.getText(), "Username is required");
+    }
+
+    public void assertPasswordInputField() {
+        Assert.assertTrue(passwordInputField.isDisplayed());
+        Assert.assertTrue(passwordInputField.isEnabled());
     }
 
     public void assertPasswordEmptyFieldErrorMsg() {
         passwordInputField.click();
         usernameInputField.click();
         Assert.assertTrue(passwordErrorMsg.isDisplayed());
-        Assert.assertEquals("Enter your password", passwordErrorMsg.getText());
+        Assert.assertEquals(passwordErrorMsg.getText(), "Enter your password");
     }
 
     public void assertPasswordErrorMsg4Char(String under4CharPassword) {
@@ -115,7 +137,14 @@ public class SignUpRegistrationPage extends BaseTest {
         confirmPasswordInputField.click();
         passwordInputField.click();
         Assert.assertTrue(passwordErrorMsg.isDisplayed());
-        Assert.assertEquals("Confirm your password", confirmPasswordErrorMsg.getText());
+        Assert.assertEquals(confirmPasswordErrorMsg.getText(), "Confirm your password");
+    }
+
+    public void assertPasswordDoesNotMatchHelperTxt() {
+        confirmPasswordInputField.click();
+        passwordInputField.click();
+        Assert.assertTrue(passwordErrorMsg.isDisplayed());
+        Assert.assertEquals(confirmPasswordErrorMsg.getText(), "Password does not match");
     }
 
 
@@ -129,11 +158,12 @@ public class SignUpRegistrationPage extends BaseTest {
 
     public void assertHaveAnAccountTxt() {
         Assert.assertTrue(haveAnAccountTxt.isDisplayed());
-        Assert.assertEquals("Have an account? Sign In", haveAnAccountTxt.getText());
+        Assert.assertEquals(haveAnAccountTxt.getText(), "Have an account? Sign In");
+        Assert.assertTrue(haveAnAccountTxt.isEnabled());
     }
 
     public void haveAnAccountClick() {
-        haveAnAccountTxt.click();
+      haveAnAccountTxt.click();
     }
 
 
