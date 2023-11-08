@@ -49,4 +49,12 @@ public class LoginLogoutTests extends BaseTest {
         loginPage.assertErrorMsgSignIn();
     }
 
+    @Test(priority = 30)
+    public void failToLoginLeavingAllFieldsEmpty() {
+        loginPage.assertVisibleSignInButton();
+        loginPage.clickSignInButton();
+        loginPage.assertInnactiveSignInButton();
+        loginPage.assertUsernameErrorMsg();
+    }
+
  }

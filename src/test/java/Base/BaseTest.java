@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class BaseTest {
@@ -26,12 +27,13 @@ public class BaseTest {
     public TransactionPaymentPage transactionPaymentPage;
 
     @BeforeClass
-    public void setUp() {
+    public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
+        excelReader = new ExcelReader("src/test/java/DataTestRealWorldAppQAcademy.xlsx");
         loginPage = new LoginPage();
         headerFooterLogos = new HeaderFooterLogos();
         signUpRegistrationPage = new SignUpRegistrationPage();

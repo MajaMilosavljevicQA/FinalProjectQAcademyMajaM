@@ -20,8 +20,8 @@ public class SignUpTests extends BaseTest {
         headerFooterLogos.assertQacademyLogo();
         signUpRegistrationPage.assertFirstNameField();
         signUpRegistrationPage.assertLastNameField();
-        signUpRegistrationPage.assertUsernameInputField(); //same element for login and registration pg.
-        signUpRegistrationPage.assertPasswordInputField(); //same element for login and registration pg.
+        signUpRegistrationPage.assertUsernameInputField();
+        signUpRegistrationPage.assertPasswordInputField();
         signUpRegistrationPage.assertConfirmPasswordInputField();
         signUpRegistrationPage.assertSignUpButton();
         signUpRegistrationPage.assertHaveAnAccountTxt();
@@ -31,6 +31,11 @@ public class SignUpTests extends BaseTest {
         String urlSignIn = driver.getCurrentUrl();
         //System.out.println(urlSignIn);
         Assert.assertEquals(urlSignIn,"https://app.qacademy.rs/signin");  //Test fails --> /signup
+    }
+
+    @Test(priority = 11)
+    public void signUpWithValidCredentials () {
+        signUpRegistrationPage.firstNameField();
     }
 
     @Test(priority = 20)

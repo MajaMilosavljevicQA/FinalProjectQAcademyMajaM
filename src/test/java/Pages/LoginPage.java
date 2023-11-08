@@ -101,11 +101,11 @@ public class LoginPage extends BaseTest {
 
     public void assertVisibleSignInButton() {
         Assert.assertTrue(signInButton.isDisplayed());
-        Assert.assertEquals("Sign in", signInButton.getText());
+        Assert.assertTrue(signInButton.isEnabled());
     }
 
     public void assertInnactiveSignInButton() {
-        Assert.assertFalse(signInButton.isDisplayed());
+        Assert.assertTrue(signInButton.isDisplayed());
         Assert.assertFalse(signInButton.isEnabled());
     }
 
