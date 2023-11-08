@@ -48,8 +48,8 @@ public class SignUpRegistrationPage extends BaseTest {
     @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/form/button/span[1]")
     WebElement singUpButton;
 
-    @FindBy(xpath = "//a[@href='/signin']")  ////*[@id="root"]/div/main/div[1]/form/div[6]/div/a
-    WebElement haveAnAccountTxt;  //Have an account? Sign In
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/form/div[6]/div")  ////*[@id="root"]/div/main/div[1]/form/div[6]/div/a
+    WebElement haveAnAccountTxt;  //Have an account? Sign In  //xpath = "//a[@href='/signin']"
 
     ////////////////****************//////////
 
@@ -99,6 +99,12 @@ public class SignUpRegistrationPage extends BaseTest {
         Assert.assertTrue(usernameInputField.isEnabled());
     }
 
+
+    public void usernameField(String username) {
+        usernameInputField.clear();
+        usernameInputField.sendKeys(username);
+    }
+
     public void assertUsernameHelperTxt() {
         usernameInputField.click();
         passwordInputField.click();
@@ -110,6 +116,12 @@ public class SignUpRegistrationPage extends BaseTest {
         Assert.assertTrue(passwordInputField.isDisplayed());
         Assert.assertTrue(passwordInputField.isEnabled());
     }
+
+    public void passwordField(String password) {
+        passwordInputField.clear();
+        passwordInputField.sendKeys(password);
+    }
+
 
     public void assertPasswordEmptyFieldErrorMsg() {
         passwordInputField.click();

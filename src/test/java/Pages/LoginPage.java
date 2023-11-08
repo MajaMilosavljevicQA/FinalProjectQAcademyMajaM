@@ -41,7 +41,8 @@ public class LoginPage extends BaseTest {
     @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/form/button")   //same for SIGN UP button
     public WebElement signInButton;
 
-    @FindBy(linkText = "Don't have an account? Sign Up")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[1]/form/div[3]/div[2]")  //Don't have an account? Sign Up
+    // xpath = "//*[@id="root"]/div/main/div[1]/form/div[3]/div[2]/a"
     public WebElement dontHaveAccountSignUpLinkTxt;
 
     @FindBy(className = "MuiAlert-message")
