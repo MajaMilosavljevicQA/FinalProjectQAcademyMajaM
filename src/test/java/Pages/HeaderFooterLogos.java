@@ -6,6 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HeaderFooterLogos extends BaseTest {
     public HeaderFooterLogos() {
         PageFactory.initElements(driver, this);
@@ -53,4 +56,14 @@ public class HeaderFooterLogos extends BaseTest {
         bellNotificationIcon.click();
     }
 
+    public void switchTab(int x) {
+        try {
+            List<String> windowHandles = new ArrayList<>(driver.getWindowHandles());
+            driver.switchTo().window(windowHandles.get(x));
+        } catch (IndexOutOfBoundsException windowWithIndexNotFound) {
+            System.out.println("Error - no tab");
+        }
+    }
 }
+
+

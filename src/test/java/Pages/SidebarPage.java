@@ -117,7 +117,7 @@ public class SidebarPage extends BaseTest {
         notificationsLink.click();
     }
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div[2]/div[5]/ul/div/div/div[2]/span")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div/div[2]/div[5]/ul/div/div")
     WebElement logoutLink; //Logout
 
     public void assertLogoutLink() {
