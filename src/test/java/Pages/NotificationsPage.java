@@ -34,4 +34,14 @@ public class NotificationsPage extends BaseTest {
     public void assertNotificationPgImg() {
         Assert.assertTrue(notificationsPgImg.isDisplayed());
     }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[1]/a[2]/span[1]/span/span")
+    WebElement notificationBadge;
+
+    public void assertNotificationBadge() {
+        Assert.assertTrue(notificationBadge.isDisplayed());
+        //Assert.assertEquals();  --> todo ask team how to assert badge number
+    }
+
+
 }
