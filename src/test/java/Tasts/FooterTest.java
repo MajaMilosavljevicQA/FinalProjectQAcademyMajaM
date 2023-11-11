@@ -14,10 +14,10 @@ public class FooterTest extends BaseTest {
 
     @Test(priority = 10)
     public void clickQAcademyLogoAssertUrl() throws InterruptedException {
-        headerFooterLogos.assertQacademyLogo();
-        headerFooterLogos.clickOnQacademyLogo();
+        headerFooterLogosPage.assertQacademyLogo();
+        headerFooterLogosPage.clickOnQacademyLogo();
         Thread.sleep(1000);
-        headerFooterLogos.switchTab(1);
+        headerFooterLogosPage.switchTab(1);
         Assert.assertEquals( driver.getCurrentUrl(), "https://qacademy.rs/");
     }
 }

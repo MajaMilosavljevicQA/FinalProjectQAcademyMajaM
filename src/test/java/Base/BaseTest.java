@@ -18,13 +18,17 @@ public class BaseTest {
     public WebDriverWait wait;
     public ExcelReader excelReader;
     public LoginPage loginPage;
-    public HeaderFooterLogos headerFooterLogos;
+    public HeaderFooterLogosPage headerFooterLogosPage;
     public SignUpRegistrationPage signUpRegistrationPage;
     public HomePage homePage;
 
     public SidebarPage sidebarPage;
     public TransactionSelectContactPage transactionSelectContactPage;
     public TransactionPaymentPage transactionPaymentPage;
+    public TransactionCompletePage transactionCompletePage;
+    public BankAccountsPage bankAccountsPage;
+    public NotificationsPage notificationsPage;
+    public NewBankAccountPage newBankAccountPage;
 
     @BeforeClass
     public void setUp() throws IOException {
@@ -35,12 +39,16 @@ public class BaseTest {
         driver.manage().window().maximize();
         excelReader = new ExcelReader("src/test/java/DataTestRealWorldAppQAcademy.xlsx");
         loginPage = new LoginPage();
-        headerFooterLogos = new HeaderFooterLogos();
+        headerFooterLogosPage = new HeaderFooterLogosPage();
         signUpRegistrationPage = new SignUpRegistrationPage();
         homePage = new HomePage();
         sidebarPage = new SidebarPage();
         transactionSelectContactPage = new TransactionSelectContactPage();
         transactionPaymentPage = new TransactionPaymentPage();
+        transactionCompletePage = new TransactionCompletePage();
+        bankAccountsPage = new BankAccountsPage();
+        notificationsPage = new NotificationsPage();
+        newBankAccountPage = new NewBankAccountPage();
     }
 
     public void scroll(int x, int y) {

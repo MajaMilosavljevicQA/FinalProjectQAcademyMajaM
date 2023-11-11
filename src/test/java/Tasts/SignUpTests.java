@@ -13,11 +13,11 @@ public class SignUpTests extends BaseTest {
 
     @Test(priority = 10)
     public void assertSignUpPgElementsAndClickOnHaveAnAccountLink() throws InterruptedException {
-        headerFooterLogos.assertRWALogo();
+        headerFooterLogosPage.assertRWALogo();
         String urlSignUp = driver.getCurrentUrl();
         Assert.assertEquals(urlSignUp, "https://app.qacademy.rs/signup");
         signUpRegistrationPage.assertSignUpTxt();
-        headerFooterLogos.assertQacademyLogo();
+        headerFooterLogosPage.assertQacademyLogo();
         signUpRegistrationPage.assertFirstNameField();
         signUpRegistrationPage.assertLastNameField();
         signUpRegistrationPage.assertUsernameInputField();

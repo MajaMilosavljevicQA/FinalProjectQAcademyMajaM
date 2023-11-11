@@ -1,7 +1,6 @@
 package Tasts;
 
 import Base.BaseTest;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -15,13 +14,13 @@ public class LoginLogoutTests extends BaseTest {
     @Test(priority = 10)
     public void assertElementsOnLoginPgAndClickSignUpLink() {
         loginPage.assertLoginPageUrl();
-        headerFooterLogos.assertRWALogo();
+        headerFooterLogosPage.assertRWALogo();
         loginPage.assertSignInTxt();
         loginPage.assertUsernameField();
         loginPage.assertPasswordInputField();
         loginPage.assertRememberMeCheckBox();
         loginPage.rememberMe();
-        headerFooterLogos.assertQacademyLogo();
+        headerFooterLogosPage.assertQacademyLogo();
         loginPage.assertDontHaveAccountTxt();
         loginPage.clickOnDontHaveAccountSignUp();  //in reality it does not click
         signUpRegistrationPage.assertRegistrationPageURL();  //actual url --> /signin, expected /signup  FAILS

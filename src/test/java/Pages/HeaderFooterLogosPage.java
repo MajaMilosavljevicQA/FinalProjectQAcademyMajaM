@@ -9,8 +9,8 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HeaderFooterLogos extends BaseTest {
-    public HeaderFooterLogos() {
+public class HeaderFooterLogosPage extends BaseTest {
+    public HeaderFooterLogosPage() {
         PageFactory.initElements(driver, this);
     }
 
