@@ -1,6 +1,7 @@
 package Pages;
 
 import Base.BaseTest;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -55,6 +56,47 @@ public class NotificationsPage extends BaseTest {
     }
     public void clickOnQacademyLogo() {
         qacademyLogo.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div/ul/li[1]/div[2]/span")
+    WebElement temporaryPeraKojotRecievedNotification;
+
+    public void assertTemporaryPeraKojotRecievedTxt() {
+        Assert.assertTrue(temporaryPeraKojotRecievedNotification.isDisplayed());
+        Assert.assertEquals(temporaryPeraKojotRecievedNotification.getText(), "Pera Kojot received payment.");
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div/ul/li[1]/button")
+    WebElement temporaryDismissFirstButton;
+
+    public void assertDismissBtn() {
+        Assert.assertTrue(temporaryDismissFirstButton.isDisplayed());
+        Assert.assertEquals(temporaryDismissFirstButton.getText(), "DISMISS");
+    }
+
+    public void clickFirstDismissBtn() {
+        temporaryDismissFirstButton.click();
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div/ul/li[8]/div[2]")
+    WebElement temporaryLastMajaMRequestedPaymentNotification;
+
+    public void assertTemporaryMajaMReqPayNotifTxt() {
+        Assert.assertTrue(temporaryLastMajaMRequestedPaymentNotification.isDisplayed());
+        Assert.assertEquals(temporaryLastMajaMRequestedPaymentNotification.getText(), "Maja M requested payment.");
+    }
+    //todo --> ask team how to assert different types of icons for payments (red and green)
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div/ul/li[8]/button")
+    WebElement temporaryLastDismissBtnMajaM;
+
+    public void assertLastTemporaryDismissBtnMajaM() {
+        Assert.assertTrue(temporaryLastDismissBtnMajaM.isDisplayed());
+        Assert.assertEquals(temporaryLastDismissBtnMajaM.getText(), "DISMISS");
+    }
+
+    public void lastTemporaryDismissBtnClickMajaM() {
+        temporaryLastDismissBtnMajaM.click();
     }
 
 

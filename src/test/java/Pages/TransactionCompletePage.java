@@ -24,7 +24,8 @@ public class TransactionCompletePage extends BaseTest {
     WebElement requestedOrPaidFromUserTxt;
 
     public void assertRequestAmountFromUser() {
-        Assert.assertTrue(requestedOrPaidFromUserTxt.isDisplayed());   //"Requested " + \n + "$" + amountDollar + \n + "for " + \n + noteTransaction  //todo assert Equals
+        Assert.assertTrue(requestedOrPaidFromUserTxt.isDisplayed());   //"Requested " + \n + "$" + amountDollar + \n + "for " + \n + noteTransaction  --> how it looks like in console (inspect); in reallity --> no \n --> all in one line  SAME FOR ALL OTHER ELEMENTS FROM HERE DOWN with \n
+        // todo assert Equals  --> ask team for help how to do this not hard code
     }
 
     public void assertPaidAmountToUser() {
@@ -36,7 +37,7 @@ public class TransactionCompletePage extends BaseTest {
     public void assertReturnToTransactionsBtn() {
         Assert.assertTrue(returnToTransactionsBtn.isDisplayed());
         Assert.assertTrue(returnToTransactionsBtn.isEnabled());
-        Assert.assertEquals("Return To Transactions", returnToTransactionsBtn.getText());
+        Assert.assertEquals("RETURN TO TRANSACTIONS", returnToTransactionsBtn.getText());
     }
 
     public void returnToTransactionsBtnClick() {  //Returns to HomePg https://app.qacademy.rs/
@@ -49,10 +50,12 @@ public class TransactionCompletePage extends BaseTest {
     public void assertCreateAnotherTransactionBtn() {
         Assert.assertTrue(createAnotherTransactionBtn.isDisplayed());
         Assert.assertTrue(createAnotherTransactionBtn.isEnabled());
-        Assert.assertEquals("Create Another Transaction", createAnotherTransactionBtn.getText());
+        Assert.assertEquals("CREATE ANOTHER TRANSACTION", createAnotherTransactionBtn.getText());
     }
 
     public void createAnotherTransactionBtnClick() {
         createAnotherTransactionBtn.click();    //returns to Select Contact --> URL: https://app.qacademy.rs/transaction/new
     }
+
+    //todo --> ask team how to inspect/assert green footer msg "Transaction submited!" when user performs transaction
 }

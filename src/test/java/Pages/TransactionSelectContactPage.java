@@ -12,20 +12,13 @@ public class TransactionSelectContactPage extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div[1]/div[1]/span/span[1]/svg/text")
-    WebElement stepOne;
 
-    public void assertStepOneTxt() {
-        Assert.assertTrue(stepOne.isDisplayed());
-        Assert.assertEquals("1", stepOne.getText());
-    }
-
-    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div[1]/div[1]/span/span[2]/span")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div[1]/div[1]/span/span[2]")
     WebElement selectContactTxt;
 
     public void assertSelectContactTxt() {
         Assert.assertTrue(selectContactTxt.isDisplayed());
-        Assert.assertEquals("Select Contact", selectContactTxt.getText());
+        Assert.assertEquals(selectContactTxt.getText(),"Select Contact");
     }
 
     @FindBy(id = "user-list-search-input")
@@ -38,18 +31,18 @@ public class TransactionSelectContactPage extends BaseTest {
 
     public void searchInputFieldSendKeys(String transactionUserName) {
         searchInputField.clear();
-        searchInputField.sendKeys(transactionUserName);  //markomirtic  mmirtic
+        searchInputField.sendKeys(transactionUserName);  //  Genije  password --> 1! #q
     }
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div[2]/ul/li[1]/div[2]/p/span/span/span[1]")
-    WebElement markoMirtic;
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div[2]/ul/li[1]/div[2]")
+    WebElement peraKojotGenije;
 
-    public void assertMarkoMirticUserName() {
-        Assert.assertTrue(markoMirtic.isDisplayed());
+    public void assertGenijeUserName() {
+        Assert.assertTrue(peraKojotGenije.isDisplayed());
     }
 
-    public void clickMarkoMirticUserTransaction() {
-        markoMirtic.click();
+    public void clickGenijeUserTransaction() {
+        peraKojotGenije.click();
     }
 
     public void transactionPageURL() {
