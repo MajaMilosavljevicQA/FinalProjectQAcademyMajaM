@@ -2,9 +2,7 @@ package Pages;
 
 import Base.BaseTest;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -180,6 +178,24 @@ public class HomePage extends BaseTest {
        // Assert.assertEquals("You're all set! + \n + \n + We're excited to have you aboard the Real World App!", passusTxtThirdPopup.getText());
      //todo check with team
     }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/header/div/h1/a")
+    WebElement realWorldAppTitleLinkLogo;
+
+    public void assertRWALink() {
+        Assert.assertTrue(realWorldAppTitleLinkLogo.isDisplayed());
+        Assert.assertTrue(realWorldAppTitleLinkLogo.isEnabled());
+    }
+
+    public void clickRWALogoLink() {
+        realWorldAppTitleLinkLogo.click();
+    }
+
+    public void realWorldAppURLWhenClickedUpon() {
+        realWorldAppTitleLinkLogo.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://app.qacademy.rs/");
+    }
+
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/header/div[2]/div/span")
     WebElement tabIndicator;

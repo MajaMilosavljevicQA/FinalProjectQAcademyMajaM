@@ -25,10 +25,10 @@ public class NotificationsPage extends BaseTest {
 
     public void assertEmptyNotificationTxt() {
         Assert.assertTrue(notificationPgTxt.isDisplayed());
-        Assert.assertEquals("No + \n +Notifications", notificationPgTxt.getText());
+        Assert.assertEquals( notificationPgTxt.getText(), "No Notifications");
     }
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div/div/div/div[2]/div/svg")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/div/div/div/div/div[2]")
     WebElement notificationsPgImg;
 
     public void assertNotificationPgImg() {
@@ -41,6 +41,20 @@ public class NotificationsPage extends BaseTest {
     public void assertNotificationBadge() {
         Assert.assertTrue(notificationBadge.isDisplayed());
         //Assert.assertEquals();  --> todo ask team how to assert badge number
+    }
+
+    public void assertNotificationPageURL() {
+        Assert.assertEquals(driver.getCurrentUrl(),"https://app.qacademy.rs/notifications");
+    }
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/main/div[2]/div/p/a")
+    public WebElement qacademyLogo;
+
+    public void assertQacademyLogo() {
+        Assert.assertTrue(qacademyLogo.isDisplayed());
+    }
+    public void clickOnQacademyLogo() {
+        qacademyLogo.click();
     }
 
 

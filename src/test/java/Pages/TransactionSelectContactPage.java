@@ -52,5 +52,7 @@ public class TransactionSelectContactPage extends BaseTest {
         markoMirtic.click();
     }
 
-
+    public void transactionPageURL() {
+        Assert.assertEquals(driver.getCurrentUrl(), "https://app.qacademy.rs/transaction/new");
+    }
 }
